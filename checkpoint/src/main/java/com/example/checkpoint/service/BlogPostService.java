@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BlogPostService {
@@ -31,7 +32,7 @@ public class BlogPostService {
     public List<BlogPost> getBlogs(){
         return blogPostRepository.findAll();
     }
-    public void getBlogPost(Long blogId){
-        blogPostRepository.findById(blogId);
+    public Optional<BlogPost> getBlogPost(Long blogId){
+        return blogPostRepository.findById(blogId);
     }
 }

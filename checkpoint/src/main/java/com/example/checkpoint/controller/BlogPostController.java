@@ -2,12 +2,14 @@ package com.example.checkpoint.controller;
 
 import com.example.checkpoint.entity.BlogPost;
 import com.example.checkpoint.service.BlogPostService;
-import lombok.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 public class BlogPostController {
+    public LocalDate localDate;
     public BlogPostService blogPostService;
 
     public BlogPostController(BlogPostService blogPostService) {
@@ -27,6 +29,7 @@ public class BlogPostController {
     }
     @PutMapping("/update")
     public ResponseEntity<?> updateBlog(BlogPost blogPost){
+        blogPost = new BlogPost("Software Design Put", "JAVA OOP and Spring boot content updated","Bolton Derick and Kelvin", localDate);
         blogPostService.updateBlog(blogPost);
         return ResponseEntity.ok().build();
     }
@@ -36,7 +39,8 @@ public class BlogPostController {
         return ResponseEntity.ok().build();
     }
     @GetMapping("/blogs/{blogId}")
-    public ResponseEntity<Long> getBlogPost(@PathVariable Long blogId){
+    public ResponseEntity<?> getBlogPost(@PathVariable Long blogId){
         blogPostService.getBlogPost(blogId);
+        return ResponseEntity.ok().body(blogPostService.getBlogPost(blogId));
     }
 }
