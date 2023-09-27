@@ -6,5 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BlogPostRepository extends JpaRepository<BlogPost,Long> {
-    //public List<BlogPost> findByTitle();
+//    //public List<BlogPost> findByTitle();
+//    List<EntityTest> findByName(String name);
+//    List<EntityTest> findByPriceGreaterThan(double price);
 }
