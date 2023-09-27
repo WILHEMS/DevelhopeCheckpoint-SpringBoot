@@ -23,7 +23,7 @@ public class BlogPostService {
     }
 
     public void addBlog(){
-        blogPostRepository.save(new BlogPost(null, "JAVA OOP and Spring boot content","Bolton Derick", localDate));
+        blogPostRepository.save(new BlogPost("Software Engineering Design", "JAVA OOP and Spring boot content","Bolton Derick", localDate));
     }
     public void updateBlog(BlogPost blogPost){
         blogPost = new BlogPost("Software Design Put", "JAVA OOP and Spring boot content updated","Bolton Derick and Kelvin", localDate);
@@ -37,5 +37,11 @@ public class BlogPostService {
     }
     public Optional<BlogPost> getBlogPost(Long blogId){
         return blogPostRepository.findById(blogId);
+    }
+    public List<BlogPost> getBlogPostByAuthor(String author){
+        return blogPostRepository.findByAuthor(author);
+    }
+    public List<BlogPost> getBlogPostByDate(LocalDate localDate){
+        return blogPostRepository.findByDatePublished(localDate);
     }
 }
