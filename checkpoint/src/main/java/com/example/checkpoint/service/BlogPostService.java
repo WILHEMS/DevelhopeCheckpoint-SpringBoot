@@ -23,7 +23,7 @@ public class BlogPostService {
     }
 
     public void addBlog(){
-        blogPostRepository.save(new BlogPost("Software Design", "JAVA OOP and Spring boot content","Bolton Derick", localDate));
+        blogPostRepository.save(new BlogPost(null, "JAVA OOP and Spring boot content","Bolton Derick", localDate));
     }
     public void updateBlog(BlogPost blogPost){
         blogPost = new BlogPost("Software Design Put", "JAVA OOP and Spring boot content updated","Bolton Derick and Kelvin", localDate);
