@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +15,7 @@ import java.util.Optional;
 public class BlogPostService {
     public BlogPostRepository blogPostRepository;
 
-    public LocalDate localDate;
+    public LocalDate localDate = LocalDate.now();
 
     @Autowired
     public BlogPostService(BlogPostRepository blogPostRepository) {
@@ -24,6 +26,7 @@ public class BlogPostService {
         blogPostRepository.save(new BlogPost("Software Design", "JAVA OOP and Spring boot content","Bolton Derick", localDate));
     }
     public void updateBlog(BlogPost blogPost){
+        blogPost = new BlogPost("Software Design Put", "JAVA OOP and Spring boot content updated","Bolton Derick and Kelvin", localDate);
         blogPostRepository.save(blogPost);
     }
     public void deleteBlog(Long blogId){

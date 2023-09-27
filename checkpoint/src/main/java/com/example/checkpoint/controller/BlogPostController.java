@@ -29,7 +29,6 @@ public class BlogPostController {
     }
     @PutMapping("/update")
     public ResponseEntity<?> updateBlog(BlogPost blogPost){
-        blogPost = new BlogPost("Software Design Put", "JAVA OOP and Spring boot content updated","Bolton Derick and Kelvin", localDate);
         blogPostService.updateBlog(blogPost);
         return ResponseEntity.ok().build();
     }
